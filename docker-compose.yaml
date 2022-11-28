@@ -1,0 +1,16 @@
+version:  '3'
+
+
+services:
+  db:
+    image: postgres:14.6
+    container_name: mydb-postgres-shop
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${USER_DB}
+      POSTGRES_PASSWORD: ${USER_DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
